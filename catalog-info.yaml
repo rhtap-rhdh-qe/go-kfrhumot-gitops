@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: go-kfrhumot-gitops
+  description: This is GitOps manifest for go-kfrhumot   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=go-kfrhumot
+    backstage.io/kubernetes-id: go-kfrhumot 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: go-kfrhumot
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:go-kfrhumot
